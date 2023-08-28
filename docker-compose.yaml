@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    container_name: spring-boot-app
+    build:
+      dockerfile: ./Dockerfile
+    expose:
+      - "5500"
+    depends_on:
+      - frontend
+    restart: always
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontend
+    build:
+      dockerfile: ./card-transfer/Dockerfile
+    restart: always
+    expose:
+      - "5500"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
