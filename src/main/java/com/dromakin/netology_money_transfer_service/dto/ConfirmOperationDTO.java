@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @Builder
 public class ConfirmOperationDTO {
     @Min(value = 0, message = "Operation ID > 0")
-    private final Long operationId;
+    private final long operationId;
 
     @NotBlank
     @Size(min = 4, max = 6)

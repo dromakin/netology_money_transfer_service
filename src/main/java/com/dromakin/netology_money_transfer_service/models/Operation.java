@@ -12,6 +12,7 @@
  */
 package com.dromakin.netology_money_transfer_service.models;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
@@ -19,20 +20,18 @@ import java.time.LocalDate;
 
 @Data
 @Validated
+@Builder
 public class Operation {
     private final Long id;
     private final LocalDate created;
-    // from
-    private String cardFromNumber;
-    private String cardFromValidTill;
-    private String cardFromCVV;
 
-    // to
-    private String cardToNumber;
+    private Card cardFrom;
+    private Card cardTo;
 
     private Amount amount;
     private Status status;
 
     private Long fee;
     private String code;
+    private String reason;
 }

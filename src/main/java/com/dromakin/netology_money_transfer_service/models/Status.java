@@ -14,7 +14,7 @@ package com.dromakin.netology_money_transfer_service.models;
 
 public enum Status {
     NEW,
-    NOT_APPROVED,
+    WAIT_APPROVE,
     DONE,
     ERROR
 }

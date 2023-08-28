@@ -16,19 +16,19 @@ import com.dromakin.netology_money_transfer_service.models.Amount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @Data
 @Builder
 public class OperationDTO {
     @NotBlank
-    @CreditCardNumber(message = "Invalid sender card number")
+    @Size(min = 16, max = 16, message = "Card number length is 16! Wrong format card!")
     private final String cardFromNumber;
 
     @NotBlank
@@ -40,7 +40,7 @@ public class OperationDTO {
     private final String cardFromCVV;
 
     @NotBlank
-    @CreditCardNumber(message = "Invalid beneficiary card number")
+    @Size(min = 16, max = 16, message = "Card number length is 16! Wrong format card!")
     private final String cardToNumber;
 
     @Valid

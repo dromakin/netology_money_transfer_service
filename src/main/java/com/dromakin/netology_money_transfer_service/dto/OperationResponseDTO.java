@@ -23,5 +23,5 @@ import javax.validation.constraints.Min;
 @Builder
 public class OperationResponseDTO {
     @Min(value = 0, message = "Operation ID > 0")
-    private Long id;
+    private final Long operationId;
 }
